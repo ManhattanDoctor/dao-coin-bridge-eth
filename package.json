@@ -1,0 +1,28 @@
+{
+    "name": "hlf-bridge",
+    "version": "1.0.0",
+    "description": "Bridge between Ethereum and HLF",
+    "author": "Renat Gubaev",
+    "license": "ISC",
+    "scripts": {
+        "test": "truffle test ./test/HlfBridge.js",
+        "start": "truffle exec ./script/CoinBridge.js",
+        "reset": "npm run compile:all && npm run migrate:reset",
+        "verify": "truffle run verify CoinBridge --network goerli --verifiers=etherscan",
+        "flatten": "npx truffle-flattener ./contracts/CoinBridge.sol > ./contracts/CoinBridgeFlatten.sol",
+        "compile": "truffle compile",
+        "compile:all": "truffle compile --all",
+        "migrate": "truffle migrate",
+        "migrate:reset": "truffle migrate --reset"
+    },
+    "dependencies": {
+        "@openzeppelin/contracts": "^4.8.2",
+        "@openzeppelin/contracts-upgradeable": "^4.8.2",
+        "@truffle/contract": "^4.6.16",
+        "@truffle/hdwallet-provider": "^2.1.7",
+        "dotenv": "^16.0.3"
+    },
+    "devDependencies": {
+        "truffle-plugin-verify": "^0.6.2"
+    }
+}
